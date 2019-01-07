@@ -1,0 +1,90 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+import os
+
+
+def moyenne(tableau):
+    return sum(tableau, 0.0) / len(tableau)
+
+d
+ef moyenne_latency(tableau):	
+    for i in tableau:
+	if(i	
+    return sum(tableau,0.0) / len(tableau(tableau>0)) 	
+	
+def variance(tableau):
+    m=moyenne(tableau)
+    return moyenne([(x-m)**2 for x in tableau])
+
+def ecartype(tableau):
+    return variance(tableau)**0.5
+
+def plot_mean_variance(*argv):
+	
+	latency = [[],[],[]]
+	#l = [1,4,5,2,5,3,4]
+	#m = [3,4,3,5,3,2,8]
+
+	experiences = ['experience1','experience2','experience3']	
+	x_pos = np.arange(len(experiences))
+	y=[]
+	y_ecartype=[]
+	i=0
+	for fichier in os.listdir(sys.argv[1]):
+		with open(sys.argv[1]+'/'+fichier) as input_plot_file:
+        	        for line in input_plot_file:
+        	       	 	for s in line.split():
+					latency[i].append(float(s))
+				#values = [float(s) for s in line.split()]
+		                #print(values)
+		print(latency[i])
+		y.append(moyenne(latency[i]))	
+		y_ecartype.append(ecartype(latency[i]))	
+		i+=1
+	
+
+
+	#y=[moyenne(l),moyenne(m)]
+	#y_ecartype =[ecartype(l),ecartype(m)]
+
+	fig, axs = plt.subplots(nrows=2,ncols=2,sharex=True)
+	ax = axs[0,0]
+	ax.bar(x_pos, y , yerr=y_ecartype, align='center', alpha=0.5, ecolor='black', capsize=10)
+	ax.set_ylabel('Moyenne')
+	ax.set_xticks(x_pos)
+	ax.set_xticklabels(experiences)
+	ax.set_title('Temps de convergence de deux echantillons de taille 8')
+	ax.yaxis.grid(True)
+
+	ax = axs[0,1]
+	ax.bar(x_pos, y , yerr=y_ecartype, align='center', alpha=0.5, ecolor='black', capsize=10)
+	ax.set_ylabel('Moyenne')
+	ax.set_xticks(x_pos)
+	ax.set_xticklabels(experiences)
+	ax.set_title('Consommation energetique de deux echantillons de taille 8')
+	ax.yaxis.grid(True)
+
+	ax = axs[1,0]
+	ax.bar(x_pos, y , yerr=y_ecartype, align='center', alpha=0.5, ecolor='black', capsize=10)
+	ax.set_ylabel('Moyenne')
+	ax.set_xticks(x_pos)
+	ax.set_xticklabels(experiences)
+	ax.set_title('latence de deux echantillons de taille 8')
+	ax.yaxis.grid(True)
+
+	ax = axs[1,1]
+	ax.bar(x_pos, y , yerr=y_ecartype, align='center', alpha=0.5, ecolor='black', capsize=10)
+	ax.set_ylabel('Moyenne')
+	ax.set_xticks(x_pos)
+	ax.set_xticklabels(experiences)
+	ax.set_title('ratio perte de paquets de deux echantillons de taille 8')
+	ax.yaxis.grid(True)
+
+	#plt.tight_layout()
+	#plt.savefig('bar_plot_with_error_bars.png')
+	plt.show()
+
+
+if __name__ == "__main__":
+    plot_mean_variance()

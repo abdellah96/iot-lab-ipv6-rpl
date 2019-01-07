@@ -1,0 +1,16 @@
+==================================================
+Deploying and manipulating RPL-based IPv6 networks
+
+Usage: make [help all @EXAMPLES@] [PATCH=<list>]
+
+	- Patch RF_CHANNEL and IEEE802154_CONF_PANID:
+		$ make erbium-server PATCH=1
+
+	- Patch all with NullRDC and previous patch:
+		$ make all PATCH="1 2"
+
+	- Print this help message:
+		$ make [help]
+
+=================
+Available patches

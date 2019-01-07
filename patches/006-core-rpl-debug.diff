@@ -1,0 +1,13 @@
+diff --git a/core/net/rpl/rpl-conf.h b/core/net/rpl/rpl-conf.h
+index 97ab8f4..5cd74f8 100644
+--- a/core/net/rpl/rpl-conf.h
++++ b/core/net/rpl/rpl-conf.h
+@@ -42,7 +42,7 @@
+ 
+ /* Set to 1 to enable RPL statistics */
+ #ifndef RPL_CONF_STATS
+-#define RPL_CONF_STATS 0
++#define RPL_CONF_STATS 1
+ #endif /* RPL_CONF_STATS */
+ 
+ /*

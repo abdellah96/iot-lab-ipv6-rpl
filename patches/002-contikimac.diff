@@ -1,0 +1,71 @@
+diff --git a/examples/iotlab/04-er-rest-example/project-conf.h b/examples/iotlab/04-er-rest-example/project-conf.h
+index 1fef448..eb87011 100644
+--- a/examples/iotlab/04-er-rest-example/project-conf.h
++++ b/examples/iotlab/04-er-rest-example/project-conf.h
+@@ -40,19 +40,22 @@
+ #define __PROJECT_ERBIUM_CONF_H__
+ 
+ /* Custom channel and PAN ID configuration for your project. */
+-/*
+-   #undef RF_CHANNEL
+-   #define RF_CHANNEL                     26
+-
+-   #undef IEEE802154_CONF_PANID
+-   #define IEEE802154_CONF_PANID          0xABCD
+- */
++#undef RF_CHANNEL
++#define RF_CHANNEL                     16
++#undef IEEE802154_CONF_PANID
++#define IEEE802154_CONF_PANID          0x0006
+ 
+ /* IP buffer size must match all other hops, in particular the border router. */
+-/*
+-   #undef UIP_CONF_BUFFER_SIZE
+-   #define UIP_CONF_BUFFER_SIZE           256
+- */
++#undef UIP_CONF_BUFFER_SIZE
++#define UIP_CONF_BUFFER_SIZE           256
++
++/* ContikiMAC */
++#undef  NETSTACK_CONF_MAC
++#undef  NETSTACK_CONF_RDC
++#undef  NETSTACK_CONF_FRAMER
++#define NETSTACK_CONF_MAC     csma_driver
++#define NETSTACK_CONF_RDC     contikimac_driver
++#define NETSTACK_CONF_FRAMER  contikimac_framer
+ 
+ #undef RPL_CONF_MAX_DAG_PER_INSTANCE
+ #define RPL_CONF_MAX_DAG_PER_INSTANCE     1
+diff --git a/examples/ipv6/rpl-border-router/project-conf.h b/examples/ipv6/rpl-border-router/project-conf.h
+index c9bbb6d..c5dc5ad 100644
+--- a/examples/ipv6/rpl-border-router/project-conf.h
++++ b/examples/ipv6/rpl-border-router/project-conf.h
+@@ -31,6 +31,19 @@
+ #ifndef PROJECT_ROUTER_CONF_H_
+ #define PROJECT_ROUTER_CONF_H_
+ 
++#undef  RF_CHANNEL
++#define RF_CHANNEL 16
++#undef  IEEE802154_CONF_PANID
++#define IEEE802154_CONF_PANID 0x0006
++
++/* ContikiMAC */
++#undef  NETSTACK_CONF_MAC
++#undef  NETSTACK_CONF_RDC
++#undef  NETSTACK_CONF_FRAMER
++#define NETSTACK_CONF_MAC     csma_driver
++#define NETSTACK_CONF_RDC     contikimac_driver
++#define NETSTACK_CONF_FRAMER  contikimac_framer
++
+ #ifndef WITH_NON_STORING
+ #define WITH_NON_STORING 0 /* Set this to run with non-storing mode */
+ #endif /* WITH_NON_STORING */
+@@ -53,7 +66,7 @@
+ #endif
+ 
+ #ifndef UIP_CONF_BUFFER_SIZE
+-#define UIP_CONF_BUFFER_SIZE    140
++#define UIP_CONF_BUFFER_SIZE    256
+ #endif
+ 
+ #ifndef UIP_CONF_RECEIVE_WINDOW

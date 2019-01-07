@@ -1,0 +1,13 @@
+diff --git a/examples/iotlab/04-er-rest-example/er-example-server.c b/examples/iotlab/04-er-rest-example/er-example-server.c
+index b78dc78..0c267e1 100644
+--- a/examples/iotlab/04-er-rest-example/er-example-server.c
++++ b/examples/iotlab/04-er-rest-example/er-example-server.c
+@@ -45,7 +45,7 @@
+ 
+ #include "dev/serial-line.h"
+ 
+-#define DEBUG 0
++#define DEBUG 1
+ #if DEBUG
+ #include <stdio.h>
+ #define PRINTF(...) printf(__VA_ARGS__)

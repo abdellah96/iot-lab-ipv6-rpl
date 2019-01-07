@@ -1,0 +1,39 @@
+diff --git a/core/net/rpl/rpl-dag-root.c b/core/net/rpl/rpl-dag-root.c
+index 57a10ef..89e976c 100644
+--- a/core/net/rpl/rpl-dag-root.c
++++ b/core/net/rpl/rpl-dag-root.c
+@@ -38,7 +38,7 @@
+ 
+ #include <string.h>
+ 
+-#define DEBUG DEBUG_NONE
++#define DEBUG DEBUG_FULL
+ #include "net/ip/uip-debug.h"
+ 
+ #define RPL_DAG_GRACE_PERIOD (CLOCK_SECOND * 20 * 1)
+diff --git a/core/net/rpl/rpl-dag.c b/core/net/rpl/rpl-dag.c
+index b169423..215ede6 100644
+--- a/core/net/rpl/rpl-dag.c
++++ b/core/net/rpl/rpl-dag.c
+@@ -58,7 +58,7 @@
+ #include <limits.h>
+ #include <string.h>
+ 
+-#define DEBUG DEBUG_NONE
++#define DEBUG DEBUG_FULL
+ #include "net/ip/uip-debug.h"
+ 
+ /* A configurable function called after every RPL parent switch */
+diff --git a/core/net/rpl/rpl.c b/core/net/rpl/rpl.c
+index 15dcb6e..fc19214 100644
+--- a/core/net/rpl/rpl.c
++++ b/core/net/rpl/rpl.c
+@@ -50,7 +50,7 @@
+ #include "net/rpl/rpl-ns.h"
+ #include "net/ipv6/multicast/uip-mcast6.h"
+ 
+-#define DEBUG DEBUG_NONE
++#define DEBUG DEBUG_FULL
+ #include "net/ip/uip-debug.h"
+ 
+ #include <limits.h>
